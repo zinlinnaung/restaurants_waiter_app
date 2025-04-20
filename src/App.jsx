@@ -9,7 +9,7 @@ import WaiterLogin from "./pages/WaiterLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
-  return <KitchenLogin />;
+  return <OrderPage/>;
 }
 
 export default App;

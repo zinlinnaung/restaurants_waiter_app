@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function OrderSummary({ order, submitOrder, updateQty }) {
+  const [orderNote, setOrderNote] = useState("");
+
   const total = order.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -39,12 +43,28 @@ export default function OrderSummary({ order, submitOrder, updateQty }) {
           </div>
         ))
       )}
+
+      {/* Order Note Textarea */}
+      <div>
+        <label className="block text-gray-300 font-medium mb-1">
+          📝 Order Note:
+        </label>
+        <textarea
+          className="w-full bg-gray-800 border border-gray-600 rounded-lg p-2 text-white"
+          rows="3"
+          placeholder="Add any notes for this order..."
+          value={orderNote}
+          onChange={(e) => setOrderNote(e.target.value)}
+        />
+      </div>
+
       <div className="pt-2 text-right font-bold text-lg">
         Total: {total.toLocaleString()} MMK
       </div>
+
       <button
         className="w-full bg-blue-600 hover:bg-blue-700 py-2 rounded-lg text-white font-medium"
-        onClick={submitOrder}
+        onClick={() => submitOrder(orderNote)} // pass note to submitOrder
       >
         Submit Order
       </button>
