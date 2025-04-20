@@ -47,7 +47,7 @@ export default function OrderSummary({ order, submitOrder, updateQty }) {
       {/* Order Note Textarea */}
       <div>
         <label className="block text-gray-300 font-medium mb-1">
-          📝 Order Note:
+          📝 Order Notes:
         </label>
         <textarea
           className="w-full bg-gray-800 border border-gray-600 rounded-lg p-2 text-white"
